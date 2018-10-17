@@ -32,7 +32,7 @@ Input.propTypes = propTypes;
 
 // specifies the default propType value when not explicitly required.
 Input.defaultProps = {
-  value: 'placeholder',
+  value: null,
 };
 
 export default Input;
