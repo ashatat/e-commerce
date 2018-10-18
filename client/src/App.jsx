@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+require('dotenv').config();
+
 /* eslint-disable */
 class App extends Component {
   render() {
