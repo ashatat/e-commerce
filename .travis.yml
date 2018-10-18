@@ -7,3 +7,7 @@ env:
 script:
 - if [ "$BUILD_DIR" = "client" ]; then cd $BUILD_DIR && npm install && npm test && npm run build; fi
 - if [ "$BUILD_DIR" = "server" ]; then cd $BUILD_DIR && npm install && npm test; fi
+
+cache:
+  directories:
+  - /node_modules # NPM packages
