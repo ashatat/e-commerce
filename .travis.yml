@@ -3,4 +3,5 @@ node_js:
  - node
 env:
  - BUILD_DIR=client
+ - BUILD_DIR=server
 script: cd $BUILD_DIR && npm install && npm test && npm run build
