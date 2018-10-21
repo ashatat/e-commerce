@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag componet render 1`] = `
+Array [
+  <span
+    className="tag"
+    style={
+      Object {
+        "backgroundColor": "#ea5f50",
+        "color": "white",
+      }
+    }
+  >
+    SALE
+  </span>,
+  <span
+    className="triangle"
+    style={
+      Object {
+        "borderRightColor": "#ea5f50",
+      }
+    }
+  />,
+]
+`;
