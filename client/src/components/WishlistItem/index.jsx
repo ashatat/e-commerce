@@ -48,6 +48,7 @@ const WishlistItem = props => {
           type="button"
           className="addToCart-div__button"
           onClick={() => addToCart(id)}
+          title="Add to Cart"
         >
           + Add to Cart
         </button>
@@ -58,8 +59,9 @@ const WishlistItem = props => {
           type="button"
           className="reomeFromCart-div__button"
           onClick={() => removeFromCart(id)}
+          title="Remove this product"
         >
-          X
+          ×
         </button>
       </div>
     </div>
