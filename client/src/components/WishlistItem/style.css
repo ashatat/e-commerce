@@ -6,10 +6,9 @@
   max-width: 864px;
   align-items: center;
   position: relative;
-  /* border: 1px solid black */
 }
 
-.wishlistItem::after{
+.wishlistItem::after {
   content: '';
   display: block;
   border: 1px solid #e3e3e3;
@@ -25,8 +24,8 @@
   padding-top: 18px;
   color: #333333;
   line-height: 45px
-
 }
+
 div.img-div {
   height: 100%;
   max-width: 100%;
@@ -36,56 +35,55 @@ div.img-div {
 .img-div__img {
   height: 70%;
   max-width: 100%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   position: absolute
 }
-div.productName-div{
+
+div.productName-div {
   width: 30%;
   padding-left: 20px;
 }
 
-div.productName-div .productName-div__link{
+div.productName-div .productName-div__link {
   text-decoration: none;
   text-transform: capitalize;
   color: #333333;
   transition: all 0.8s ease-in-out
-
 }
 
-div.productName-div .productName-div__link:hover{
+div.productName-div .productName-div__link:hover {
   color: #eabe12
 }
 
-
-div.reomeFromCart-div{
+div.reomeFromCart-div {
   width: 10%;
 }
-.stockStatus-div__span.color--green{
+
+.stockStatus-div__span.color--green {
   color: #297E29
 }
 
-.stockStatus-div__span.color--red{
+.stockStatus-div__span.color--red {
   color: #f00
 }
 
-.addToCart-div__button{
+.addToCart-div__button {
   background: #fff;
   outline: none;
   border: 2px solid #e3e3e3;
   padding: 15px;
   transition: all 0.8s ease-in-out
-
 }
 
-.addToCart-div__button:hover{
+.addToCart-div__button:hover {
   border-color: #eabe12;
   color: #eabe12;
   cursor: pointer;
 }
 
-.reomeFromCart-div__button{
+.reomeFromCart-div__button {
   border: none;
   outline: none;
   background: none;
@@ -95,11 +93,9 @@ div.reomeFromCart-div{
   color: #333333;
   font-size: 24px;
   transition: all 0.8s ease-in-out
-
-
 }
 
-.reomeFromCart-div__button:hover{
+.reomeFromCart-div__button:hover {
   color: #000;
   transform: scale(1.2);
 }
