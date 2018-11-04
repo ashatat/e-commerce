@@ -6,7 +6,7 @@ const propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   className: PropTypes.string.isRequired,
 };
 
@@ -30,6 +30,7 @@ Input.propTypes = propTypes;
 // specifies the default propType value when not explicitly required.
 Input.defaultProps = {
   value: null,
+  placeholder: null,
 };
 
 export default Input;
