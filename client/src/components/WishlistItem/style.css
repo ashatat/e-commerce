@@ -1,4 +1,4 @@
-.wishlistItem {
+.wishlist__item {
   height: 165px;
   display: flex;
   justify-content: space-between;
@@ -8,7 +8,7 @@
   position: relative;
 }
 
-.wishlistItem::after {
+.wishlist__item::after {
   content: '';
   display: block;
   border: 1px solid #e3e3e3;
@@ -17,7 +17,7 @@
   top: 100%
 }
 
-.wishlistItem div {
+.wishlist__div {
   height: 70%;
   width: 20%;
   position: relative;
@@ -26,13 +26,13 @@
   line-height: 45px
 }
 
-div.img-div {
+.wishlist__div--size-full {
   height: 100%;
   max-width: 100%;
   padding-top: auto
 }
 
-.img-div__img {
+.wishlist__image {
   height: 70%;
   max-width: 100%;
   transform: translate(-50%, -50%);
@@ -41,35 +41,34 @@ div.img-div {
   position: absolute
 }
 
-div.productName-div {
+.wishlist__div--width-30 {
   width: 30%;
-  padding-left: 20px;
 }
 
-div.productName-div .productName-div__link {
+.wishlist__div--padding-left-20 {
+  padding-left: 20px
+}
+
+.wishlist__name {
   text-decoration: none;
   text-transform: capitalize;
   color: #333333;
   transition: all 0.8s ease-in-out
 }
 
-div.productName-div .productName-div__link:hover {
+.wishlist__name:hover {
   color: #eabe12
 }
 
-div.reomeFromCart-div {
-  width: 10%;
-}
-
-.stockStatus-div__span.color--green {
+.wishlist__stock-status--color-green {
   color: #297E29
 }
 
-.stockStatus-div__span.color--red {
+.wishlist__stock-status--color-red {
   color: #f00
 }
 
-.addToCart-div__button {
+.wishlist__button--yellow {
   background: #fff;
   outline: none;
   border: 2px solid #e3e3e3;
@@ -77,13 +76,13 @@ div.reomeFromCart-div {
   transition: all 0.8s ease-in-out
 }
 
-.addToCart-div__button:hover {
+.wishlist__button--yellow:hover {
   border-color: #eabe12;
   color: #eabe12;
   cursor: pointer;
 }
 
-.reomeFromCart-div__button {
+.wishlist__button--x {
   border: none;
   outline: none;
   background: none;
@@ -95,7 +94,11 @@ div.reomeFromCart-div {
   transition: all 0.8s ease-in-out
 }
 
-.reomeFromCart-div__button:hover {
+.wishlist__button--x:hover {
   color: #000;
   transform: scale(1.2);
+}
+
+.wishlist__div--width-10 {
+  width: 10%;
 }

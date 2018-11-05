@@ -16,37 +16,37 @@ const WishlistItem = props => {
   } = props;
 
   return (
-    <div className="wishlistItem">
-      <div className="img-div">
+    <div className="wishlist__item">
+      <div className="wishlist__div wishlist__div--size-full">
         <NavLink to={`/product/${id}`}>
-          <img src={imgUrl} alt={name} className="img-div__img" />
+          <img src={imgUrl} alt={name} className="wishlist__image" />
         </NavLink>
       </div>
 
-      <div className="productName-div">
-        <NavLink to={`/product/${id}`} className="productName-div__link">
+      <div className="wishlist__div wishlist__div--width-30 wishlist__div--padding-left-20">
+        <NavLink to={`/product/${id}`} className="wishlist__name">
           {name}
         </NavLink>
       </div>
 
-      <div className="productPrice-div">
-        <span className="productPrice-div__span">£{price}</span>
+      <div className="wishlist__div">
+        <span className="whishlist__price">£{price}</span>
       </div>
 
-      <div className="stockStatus-div">
+      <div className="wishlist__div stock-container">
         <span
-          className={`stockStatus-div__span ${
-            isInStock ? 'color--green' : 'color--red'
+          className={`wishlist__stock-status wishlist__stock-status--${
+            isInStock ? 'color-green' : 'color-red'
           } `}
         >
           {isInStock ? 'In Stock' : 'Out of Stock'}
         </span>
       </div>
 
-      <div className="addToCart-div">
+      <div className="wishlist__div ">
         <button
           type="button"
-          className="addToCart-div__button"
+          className="wishlist__button wishlist__button--yellow"
           onClick={() => addToCart(id)}
           title="Add to Cart"
         >
@@ -54,10 +54,10 @@ const WishlistItem = props => {
         </button>
       </div>
 
-      <div className="reomeFromCart-div">
+      <div className="wishlist__div wishlist__div--width-10">
         <button
           type="button"
-          className="reomeFromCart-div__button"
+          className="wishlist__button--x"
           onClick={() => removeFromCart(id)}
           title="Remove this product"
         >
