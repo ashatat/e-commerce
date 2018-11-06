@@ -1,4 +1,4 @@
-import React , { Fragment, Component } from 'react';
+import React , { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './item-pic.css';
@@ -65,20 +65,37 @@ class ItemPic extends Component {
   }
 
   render() {
+    const { translateValue, currentIndex } = this.state;
+    const { picArr } = this.props;
     return(
       <div className="item_pic">
-        <div className="slider" style={{transform: `translateX(${this.state.translateValue}px)`}} >
-          {this.props.picArr.map((picUrl, index) => {
-            // replace img with ZoomImg compoenet when it's ready
-            return <img key={index} id={`img${index}`} src={picUrl} alt="item" />
-          })}
-        
+        <div className="slider">
+          <div style={{transform: `translateX(${translateValue}px)`}} >
+            {picArr.map((picUrl, index) => {
+              // replace img with ZoomImg compoenet when it's ready
+              return <img key={index} id={`img${index}`} src={picUrl} alt="item" />
+            })}
+          </div>
+          <div className="navigation">
+            <span onClick={this.prevImg}>&lt;</span>
+            <span onClick={this.nextImg}>&gt;</span>
+          </div>
         </div>
-        <button onClick={this.nextImg}>next</button>
-        <button onClick={this.prevImg}>previous</button>
+        <ul className="thumbnails">
+          {picArr.map((picUrl, index) => {
+            return (
+              <li id={index} className={(index === currentIndex)? "active":""}>
+                <img key={index} src={picUrl} alt="thumbnail" />
+              </li>
+            ) 
+          })}
+        </ul>
       </div>
     );
   }
 }
 
+ItemPic.propTypes = {
+  picArr: PropTypes.array
+}
 export default ItemPic;
