@@ -47,7 +47,8 @@ const WishlistItem = props => {
         <button
           type="button"
           className="wishlist__button wishlist__button--yellow"
-          onClick={() => addToCart(id)}
+          id={id}
+          onClick={addToCart}
           title="Add to Cart"
         >
           + Add to Cart
@@ -58,7 +59,8 @@ const WishlistItem = props => {
         <button
           type="button"
           className="wishlist__button--x"
-          onClick={() => removeFromCart(id)}
+          id={id}
+          onClick={removeFromCart}
           title="Remove this product"
         >
           ×
