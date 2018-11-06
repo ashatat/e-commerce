@@ -74,10 +74,20 @@ class ItemPic extends Component {
     }
   };
 
+  clickedImg = e => {
+    const { currentIndex, translateValue } = this.state;
+    const translateAdd =
+      (currentIndex - Number(e.target.id)) * this.slideWidth('current_img');
+
+    this.setState({
+      currentIndex: Number(e.target.id),
+      translateValue: translateValue + translateAdd,
+    });
+  };
+
   render() {
     const { translateValue, currentIndex } = this.state;
     const { picArr } = this.props;
-
     return (
       <div className="item_pic">
         <div className="slider">
@@ -98,12 +108,15 @@ class ItemPic extends Component {
         </div>
         <ul className="thumbnails">
           {picArr.map((pic, index) => (
-            <li
-              key={pic.id}
-              id={index}
-              className={index === currentIndex ? 'active' : ''}
-            >
-              <div className="overlay" />
+            /* eslint-disable jsx-a11y/click-events-have-key-events */
+            <li key={pic.id} className={index === currentIndex ? 'active' : ''}>
+              <div
+                role="button"
+                id={index}
+                tabIndex="0"
+                onClick={this.clickedImg}
+                className="overlay"
+              />
               <img src={pic.url} alt="thumbnail" />
             </li>
           ))}
