@@ -1,8 +1,8 @@
-.item_pic {
+.item-pic {
   width: 45%;
 }
 
-.item_pic .slider {
+.item-pic__slider {
   position: relative;
   height: 793px;
   width: 614px;
@@ -10,23 +10,23 @@
   margin-bottom: 30px;
 }
 
-.item_pic .slider>div {
+.item-pic__images {
   display: flex;
   transition: all ease-in-out 0.5s
 }
 
-.item_pic .slider img {
+.item-pic__img {
   /* this is a shorthand of flex-grow flex-shrink and flex-bases */
   flex: 0 0 100%;
 }
 
-.item_pic .slider .navigation {
+.item-pic__navigation {
   position: absolute;
   right: 10px;
   bottom: 10px;
 }
 
-.item_pic .slider .navigation button {
+.item-pic__nav-button {
   border: none;
   margin-left: 1px;
   background-color: white;
@@ -34,14 +34,14 @@
   width: 36px;
   height: 38px;
   cursor: pointer;
-  font-size: 23px;
-  font-weight: 900;
+  font-size: 22px;
+  font-weight: 600;
   text-align: center;
   line-height: 38px;
   box-shadow: 1px 1px 1px rgba(0,0,0,.15);
 }
 
-.item_pic .thumbnails {
+.item-pic__thumbnails {
   display: flex;
   justify-content: space-between;
   width: 614px;
@@ -49,7 +49,7 @@
   padding: 0;
 }
 
-.item_pic .thumbnails li {
+.item-pic__thumbnail {
   position: relative;
   width: 134px;
   list-style: none;
@@ -58,26 +58,26 @@
   transition: all ease-in-out 0.5s;
 }
 
-.item_pic .thumbnails li:hover {
+.item-pic__thumbnail:hover {
   opacity: 1;
   transition: all ease-in-out 0.5s;
 }
 
-.item_pic .overlay {
+.item-pic__overlay {
   position: absolute;
   width: 100%;
   height: 100%;
   transition: all ease-in-out 0.5s;
 }
-.item_pic .overlay:hover, .item_pic .active .overlay {
+.item-pic__overlay:hover, .item-pic__active .item-pic__overlay {
   background-color: rgba(0,0,0,.08);
   transition: all ease-in-out 0.5s;
 }
 
-.item_pic .thumbnails li img {
+.item-pic__thumbnail-img {
   width: 100%;
 }
 
-.item_pic .active {
-  opacity: 1 !important;
+.item-pic__active {
+  opacity: 1;
 }

@@ -89,35 +89,61 @@ class ItemPic extends Component {
     const { translateValue, currentIndex } = this.state;
     const { picArr } = this.props;
     return (
-      <div className="item_pic">
-        <div className="slider">
-          <div style={{ transform: `translateX(${translateValue}px)` }}>
+      <div className="item-pic">
+        <div className="item-pic__slider">
+          <div
+            className="item-pic__images"
+            style={{ transform: `translateX(${translateValue}px)` }}
+          >
             {picArr.map((pic, index) => (
               // replace img with ZoomImg compoenet when it's ready
-              <img key={pic.id} id={`img${index}`} src={pic.url} alt="item" />
+              <img
+                className="item-pic__img"
+                key={pic.id}
+                id={`img${index}`}
+                src={pic.url}
+                alt="item"
+              />
             ))}
           </div>
-          <div className="navigation">
-            <button type="button" onClick={this.prevImg}>
+          <div className="item-pic__navigation">
+            <button
+              className="item-pic__nav-button"
+              type="button"
+              onClick={this.prevImg}
+            >
               &lt;
             </button>
-            <button type="button" onClick={this.nextImg}>
+            <button
+              className="item-pic__nav-button"
+              type="button"
+              onClick={this.nextImg}
+            >
               &gt;
             </button>
           </div>
         </div>
-        <ul className="thumbnails">
+        <ul className="item-pic__thumbnails">
           {picArr.map((pic, index) => (
             /* eslint-disable jsx-a11y/click-events-have-key-events */
-            <li key={pic.id} className={index === currentIndex ? 'active' : ''}>
+            <li
+              key={pic.id}
+              className={`item-pic__thumbnail ${
+                index === currentIndex ? 'item-pic__active' : ''
+              }`}
+            >
               <div
                 role="button"
                 id={index}
                 tabIndex="0"
                 onClick={this.clickedImg}
-                className="overlay"
+                className="item-pic__overlay"
               />
-              <img src={pic.url} alt="thumbnail" />
+              <img
+                className="item-pic__thumbnail-img"
+                src={pic.url}
+                alt="thumbnail"
+              />
             </li>
           ))}
         </ul>
