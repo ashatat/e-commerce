@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import ZoomImg from './ZoomImg';
 import './item-pic.css';
 
 class ItemPic extends Component {
@@ -96,13 +97,11 @@ class ItemPic extends Component {
             style={{ transform: `translateX(${translateValue}px)` }}
           >
             {picArr.map((pic, index) => (
-              // replace img with ZoomImg compoenet when it's ready
-              <img
-                className="item-pic__img"
+              <ZoomImg
+                currentIndex={currentIndex}
+                imgSrc={pic.url}
                 key={pic.id}
                 id={`img${index}`}
-                src={pic.url}
-                alt="item"
               />
             ))}
           </div>
