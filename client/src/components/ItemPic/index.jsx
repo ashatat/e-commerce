@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ZoomImg from './ZoomImg';
-import './item-pic.css';
+import './ItemPic.css';
 
 class ItemPic extends Component {
   state = {
