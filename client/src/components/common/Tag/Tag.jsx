@@ -1,19 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './Tag.css';
 
 export default function Tag({ name, color, bgColor, className }) {
   return (
-    <Fragment>
+    <div className="tag">
       <span
-        className={classNames('tag', className)}
+        className={classNames('tag__rectangle', className)}
         style={{ color, backgroundColor: bgColor }}
       >
         {name}
       </span>
-      <span className="triangle" style={{ borderRightColor: bgColor }} />
-    </Fragment>
+      <span className=".tag__triangle" style={{ borderRightColor: bgColor }} />
+    </div>
   );
 }
 
