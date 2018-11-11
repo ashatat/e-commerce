@@ -11,19 +11,10 @@ const propTypes = {
   placeholder: PropTypes.string,
   className: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  onClick: PropTypes.func,
 };
 
 const Input = props => {
-  const {
-    type,
-    name,
-    value,
-    placeholder,
-    className,
-    onChange,
-    onClick,
-  } = props;
+  const { type, name, value, placeholder, className, onChange } = props;
 
   return (
     <input
@@ -33,7 +24,6 @@ const Input = props => {
       value={value}
       className={className}
       onChange={onChange}
-      onClick={onClick}
     />
   );
 };
@@ -46,7 +36,6 @@ Input.defaultProps = {
   value: null,
   placeholder: null,
   onChange: null,
-  onClick: null,
 };
 
 export default Input;
