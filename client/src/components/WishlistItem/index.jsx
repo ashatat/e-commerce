@@ -70,7 +70,7 @@ const WishlistItem = props => {
   );
 };
 
-//  run typechecking on the props for a component,
+//  run typechecking on the props for WishlistItem component
 WishlistItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
