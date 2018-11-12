@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`has a valid snapshot 1`] = `
-Array [
+<div
+  className="tag"
+>
   <span
-    className="tag"
+    className="tag__rectangle"
     style={
       Object {
         "backgroundColor": "#ea5f50",
@@ -12,14 +14,14 @@ Array [
     }
   >
     SALE
-  </span>,
+  </span>
   <span
-    className="triangle"
+    className=".tag__triangle"
     style={
       Object {
         "borderRightColor": "#ea5f50",
       }
     }
-  />,
-]
+  />
+</div>
 `;
