@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 /* eslint linebreak-style: ["error", "windows"] */
 // declares propTypes validation.
 const propTypes = {
+  id: PropTypes.string,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
@@ -23,18 +24,22 @@ const Input = props => {
     className,
     onChange,
     onClick,
+    id,
   } = props;
 
   return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      name={name}
-      value={value}
-      className={className}
-      onChange={onChange}
-      onClick={onClick}
-    />
+    <label htmlFor={id}>
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        className={className}
+        onChange={onChange}
+        onClick={onClick}
+      />
+    </label>
   );
 };
 
@@ -47,6 +52,7 @@ Input.defaultProps = {
   placeholder: null,
   onChange: null,
   onClick: null,
+  id: null,
 };
 
 export default Input;
