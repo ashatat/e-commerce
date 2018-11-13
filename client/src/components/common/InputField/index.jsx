@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // declares propTypes validation.
 const propTypes = {
   type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   className: PropTypes.string.isRequired,
@@ -47,6 +47,7 @@ Input.defaultProps = {
   placeholder: null,
   onChange: null,
   onClick: null,
+  name: null,
 };
 
 export default Input;
