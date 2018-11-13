@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 // declares propTypes validation.
 const propTypes = {
   id: PropTypes.string,
+  labelText: PropTypes.string,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
@@ -25,10 +26,12 @@ const Input = props => {
     onChange,
     onClick,
     id,
+    labelText,
   } = props;
 
   return (
     <label htmlFor={id}>
+      {labelText}
       <input
         id={id}
         type={type}
@@ -53,6 +56,7 @@ Input.defaultProps = {
   onChange: null,
   onClick: null,
   id: null,
+  labelText: null,
 };
 
 export default Input;
