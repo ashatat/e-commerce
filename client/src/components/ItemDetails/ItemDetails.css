@@ -1,0 +1,134 @@
+.item-details {
+  width: 45%;
+}
+
+.item-details__head {
+  position: relative;
+  border-bottom: 2px solid #f2f2f2;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.item-details__nav {
+  color: #777;
+  font-size: 15px;
+}
+
+.item-details__nav a {
+  text-decoration: none;
+  color: #777;
+}
+
+.item-details__navigation {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.item-details__nav-button {
+  border: none;
+  margin: 1px;
+  background-color: white;
+  display: block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 30px;
+  box-shadow: 0 0 3px 0px rgba(0,0,0,0.15);
+}
+
+.item-details__nav-button:hover, .item-details__nav-button:focus {
+  color: #eabe12;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__header {
+  line-height: 38px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 28px;
+}
+
+.item-details__price {
+  font-family: Dosis;
+  line-height: 24px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.item-details__del {
+  color: #222222;
+}
+
+.item-details__ins {
+  text-decoration: none;
+  color: #ea5f4f;
+}
+
+.item-details__desc {
+  color: #444;
+  line-height: 26px;
+  letter-spacing: 0px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.item-details__select-color {
+  appearance: none;
+  width: 100%;
+  height: 58px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid #e3e3e3;
+  background: url(http://atelier.swiftideas.com/wp-content/themes/atelier/images/down-arrow@2x.png) no-repeat right;
+  background-size: 9px 6px;
+  margin-bottom: 25px; 
+}
+
+.item-details__color {
+  /* height: 113px; */
+  margin-bottom: 35px;
+}
+
+
+.item-details__clear-color {
+  font-size: 11px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__clear-color:hover, .item-details__clear-color:focus {
+  color: #eabe12;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__item-price {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.item-details__del--gray {
+  color: #999;
+}
+
+.item-details__qty {
+
+}
+
+.item-details__qty-field {
+
+}
+
+
