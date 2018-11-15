@@ -41,18 +41,43 @@ export default class SignUp extends Component {
   render() {
     return (
       <form className="sign-up-form" onSubmit={this.handleSubmit}>
-        <h4>Registered Customer</h4>
+        <h4 className="sign-up-form__header">Registered Customer</h4>
         <InputField
-          className
+          id="email"
+          labelText="Username or email address"
+          className="sign-up-form__text"
+          labelClass="sign-up-form__label"
           name="email"
           type="text"
           onChange={this.handleChange}
         />
-        <InputField name="password" type="text" onChange={this.handleChange} />
-        <div>
-          <InputField type="submit" value="Sign Up" />
-          <InputField type="checkbox" onClick={this.handleClick} />
+        <InputField
+          id="password"
+          labelText="Password"
+          labelClass="sign-up-form__label"
+          className="sign-up-form__text"
+          name="password"
+          type="text"
+          onChange={this.handleChange}
+        />
+        <div className="sign-up-form__button-container">
+          <InputField
+            className="sign-up-form__submit"
+            type="submit"
+            value="Sign Up"
+          />
+          <InputField
+            className="sign-up-form__checkbox"
+            type="checkbox"
+            onClick={this.handleClick}
+          />
+          <span className="remember-me__span">Remember Me</span>
         </div>
+        <p>
+          <a className="sign-up-form__anchor" href="/my-account/lost-password">
+            Lost your password?
+          </a>
+        </p>
       </form>
     );
   }
