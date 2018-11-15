@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import AddShoppingCart from '@material-ui/icons/AddShoppingCart';
-import PlaylistAdd from '@material-ui/icons/PlaylistAdd';
+import { IconContext } from 'react-icons';
+import {
+  MdKeyboardArrowUp,
+  MdKeyboardArrowDown,
+  MdAddShoppingCart,
+  MdPlaylistAdd,
+} from 'react-icons/md';
+import { FaPinterest, FaFacebookF, FaTwitter } from 'react-icons/fa';
 
 import InputField from '../common/InputField';
 
@@ -14,6 +18,16 @@ class ItemDetails extends Component {
   state = {
     color: '',
     quantity: 0,
+    tags: [
+      {
+        id: '1',
+        name: 'Backpack',
+      },
+      {
+        id: '2',
+        name: 'Accessories',
+      },
+    ],
   };
 
   prevItem = () => {
@@ -33,8 +47,8 @@ class ItemDetails extends Component {
   };
 
   render() {
-    const { name, category, details, description } = this.props;
-    const { color, quantity } = this.state;
+    const { name, category, details, description, sku } = this.props;
+    const { color, quantity, tags } = this.state;
 
     return (
       <div className="item-details">
@@ -133,22 +147,47 @@ class ItemDetails extends Component {
               onChange={this.handelChange}
             />
             <button type="button" className="item-details__qty-inc">
-              <ExpandLess />
+              <MdKeyboardArrowUp />
             </button>
             <button type="button" className="item-details__qty-dec">
-              <ExpandMore />
+              <MdKeyboardArrowDown />
             </button>
           </div>
           <button type="button" className="item-details__add-to-cart">
-            <AddShoppingCart /> ADD TO CART
+            <MdAddShoppingCart /> ADD TO CART
           </button>
           <button
             type="button"
             name="Add to wishlist"
             className="item-details__add-to-wishlist"
           >
-            <PlaylistAdd />
+            <IconContext.Provider value={{ size: '25px' }} >
+              <MdPlaylistAdd />
+            </IconContext.Provider>
           </button>
+        </div>
+        <div className="item-details__info">
+          <span>SKU: {sku}</span>
+          <span>Category: {category}</span>
+          <span>
+            Tags:{' '}
+            {tags.map(item => (
+              <span key={item.id}>{item.name}</span>
+            ))}
+          </span>
+        </div>
+        <div className="item-details__share">
+          <span className="item-details__share--bold">Share</span>
+          {/* // share links research needed */}
+          <a href="" className="item-details__share-icons">
+              <FaFacebookF />
+          </a>
+          <a href="" className="item-details__share-icons">
+              <FaTwitter />
+          </a>
+          <a href="" className="item-details__share-icons">
+              <FaPinterest />
+          </a>
         </div>
       </div>
     );
