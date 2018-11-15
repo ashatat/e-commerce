@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import AddShoppingCart from '@material-ui/icons/AddShoppingCart';
+import PlaylistAdd from '@material-ui/icons/PlaylistAdd';
+
 import InputField from '../common/InputField';
 
 import './ItemDetails.css';
@@ -60,11 +65,15 @@ class ItemDetails extends Component {
           <h1 className="item-details__header">{name}</h1>
         </div>
         <div className="item-details__price">
-          <del className="item-details__del">${360}</del>
+          <del className="item-details__del">
+            &pound;
+            {360}
+          </del>
           <ins className="item-details__ins">
             {' '}
-            ${305}
-            -$
+            &pound;
+            {305}
+            -&pound;
             {360}
           </ins>
         </div>
@@ -93,14 +102,17 @@ class ItemDetails extends Component {
                 Clear Selection
               </button>
               <div className="item-details__price item-details__item-price">
-                <del className="item-details__del item-details__del--gray">
-                  {Number(details[color].pricing.discount_price)
-                    ? `$${Number(details[color].pricing.price)}`
-                    : ''}
-                </del>
+                {Number(details[color].pricing.discount_price) ? (
+                  <del className="item-details__del item-details__del--gray">
+                    &pound;
+                    {Number(details[color].pricing.price)}
+                  </del>
+                ) : (
+                  ''
+                )}
                 <ins className="item-details__ins">
                   {' '}
-                  $
+                  &pound;
                   {Number(details[color].pricing.price) -
                     Number(details[color].pricing.discount_price)}
                 </ins>
@@ -110,15 +122,33 @@ class ItemDetails extends Component {
             ''
           )}
         </div>
-        <div className="item-details__qty">
-          <InputField
-            type="number"
-            name="quantity"
-            // value={0}
-            placeholder={quantity}
-            className="item-details__qty-field"
-            onChange={this.handelChange}
-          />
+        <div className="item-details__form">
+          <div className="item-details__qty">
+            <InputField
+              type="text"
+              name="quantity"
+              placeholder={quantity}
+              value={quantity}
+              className="item-details__qty-field"
+              onChange={this.handelChange}
+            />
+            <button type="button" className="item-details__qty-inc">
+              <ExpandLess />
+            </button>
+            <button type="button" className="item-details__qty-dec">
+              <ExpandMore />
+            </button>
+          </div>
+          <button type="button" className="item-details__add-to-cart">
+            <AddShoppingCart /> ADD TO CART
+          </button>
+          <button
+            type="button"
+            name="Add to wishlist"
+            className="item-details__add-to-wishlist"
+          >
+            <PlaylistAdd />
+          </button>
         </div>
       </div>
     );
