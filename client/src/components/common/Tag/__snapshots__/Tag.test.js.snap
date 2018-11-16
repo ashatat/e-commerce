@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`has a valid snapshot 1`] = `
+<div
+  className="tag"
+>
+  <span
+    className="tag__rectangle"
+    style={
+      Object {
+        "backgroundColor": "#ea5f50",
+        "color": "white",
+      }
+    }
+  >
+    SALE
+  </span>
+  <span
+    className=".tag__triangle"
+    style={
+      Object {
+        "borderRightColor": "#ea5f50",
+      }
+    }
+  />
+</div>
+`;
