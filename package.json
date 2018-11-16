@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Basic e-commerce website to practice our gitflow, teamwork, communication and clean code best practices.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.6.0"
+  },
   "devDependencies": {
     "babel-eslint": "9.0.0",
     "eslint": "5.6.0",
