@@ -3,3 +3,19 @@
   padding: 16px;
   font-family: sans-serif;
 }
+
+#counter{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  background: #333;
+  color: #fff;
+  line-height: 24px;
+  text-align: center;
+  font-size: 14px;
+  transform-origin: 0 0;
+
+}
