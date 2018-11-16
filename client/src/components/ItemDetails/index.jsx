@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// import icons
 import { IconContext } from 'react-icons';
 import {
   MdKeyboardArrowUp,
@@ -44,6 +45,16 @@ class ItemDetails extends Component {
 
   clearSelection = () => {
     this.setState({ color: '' });
+  };
+
+  handelIncrement = e => {
+    const { quantity } = this.state;
+
+    if (e.target.className.includes('qty-inc')) {
+      this.setState(prevState => ({ quantity: prevState.quantity + 1 }));
+    } else if (e.target.className.includes('qty-dec') && quantity > 1) {
+      this.setState(prevState => ({ quantity: prevState.quantity - 1 }));
+    }
   };
 
   render() {
@@ -141,15 +152,23 @@ class ItemDetails extends Component {
             <InputField
               type="text"
               name="quantity"
-              placeholder={quantity}
-              value={quantity}
+              placeholder={quantity.toString()}
+              value={quantity.toString()}
               className="item-details__qty-field"
               onChange={this.handelChange}
             />
-            <button type="button" className="item-details__qty-inc">
+            <button
+              onClick={this.handelIncrement}
+              type="button"
+              className="item-details__qty-inc"
+            >
               <MdKeyboardArrowUp />
             </button>
-            <button type="button" className="item-details__qty-dec">
+            <button
+              onClick={this.handelIncrement}
+              type="button"
+              className="item-details__qty-dec"
+            >
               <MdKeyboardArrowDown />
             </button>
           </div>
@@ -161,32 +180,60 @@ class ItemDetails extends Component {
             name="Add to wishlist"
             className="item-details__add-to-wishlist"
           >
-            <IconContext.Provider value={{ size: '25px' }} >
+            <IconContext.Provider value={{ size: '25px' }}>
               <MdPlaylistAdd />
             </IconContext.Provider>
           </button>
         </div>
         <div className="item-details__info">
-          <span>SKU: {sku}</span>
-          <span>Category: {category}</span>
-          <span>
+          <div>SKU: {sku}</div>
+          <div>
+            Category:{' '}
+            <a
+              className="item-details__info-link"
+              href={`/product-category/${category}`}
+            >
+              {category}
+            </a>
+          </div>
+          <div>
             Tags:{' '}
-            {tags.map(item => (
-              <span key={item.id}>{item.name}</span>
+            {tags.map((item, index) => (
+              <React.Fragment>
+                <a
+                  className="item-details__info-link"
+                  href={`/product-tag/${item.name}`}
+                  key={item.id}
+                >
+                  {item.name}
+                </a>
+                {index === tags.length - 1 ? '' : ', '}
+              </React.Fragment>
             ))}
-          </span>
+          </div>
         </div>
         <div className="item-details__share">
           <span className="item-details__share--bold">Share</span>
-          {/* // share links research needed */}
-          <a href="" className="item-details__share-icons">
-              <FaFacebookF />
+          {/*
+            share links research needed, and add item page url after adding react router routes
+          */}
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fatelier.swiftideas.com%2Fproduct%2Fachilles-low%2F"
+            className="item-details__share-icons"
+          >
+            <FaFacebookF />
           </a>
-          <a href="" className="item-details__share-icons">
-              <FaTwitter />
+          <a
+            href="http://twitter.com/share?text=Achilles%20Low&url=http%3A%2F%2Fatelier.swiftideas.com%2Fproduct%2Fachilles-low%2F"
+            className="item-details__share-icons"
+          >
+            <FaTwitter />
           </a>
-          <a href="" className="item-details__share-icons">
-              <FaPinterest />
+          <a
+            href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fatelier.swiftideas.com%2Fproduct%2Fachilles-low%2F&media=http://atelier.swiftideas.com/wp-content/uploads/2014/11/cp-suade-grey0001_2alt.jpg&description=Achilles%20Low"
+            className="item-details__share-icons"
+          >
+            <FaPinterest />
           </a>
         </div>
       </div>

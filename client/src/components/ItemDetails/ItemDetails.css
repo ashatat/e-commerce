@@ -144,7 +144,6 @@
   text-align: center;
   border: none;
   border: 2px solid #e3e3e3;
-  appearance: none;
   transition: all ease-in-out 1s;
 }
 
@@ -223,7 +222,6 @@
   margin-left: 20px;
   width: 62px;
   height: 60px;
-  /* font-size: 30px; */
   color: #444;
   background: none;
   border: 2px solid #e3e3e3;
@@ -270,6 +268,17 @@
   color: #444;
   margin-top: 40px;
   margin-bottom: 25px;
+}
+
+.item-details__info-link {
+  text-decoration: none;
+  color: #444;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__info-link:hover, .item-details__info-link:focus {
+  color: #eabe12;
+  transition: color ease-in-out 1s;
 }
 
 .item-details__share {
