@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import InputField from '../common/InputField';
-import './SignUp.css';
+import './Login.css';
 
-export default class SignUp extends Component {
+export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
