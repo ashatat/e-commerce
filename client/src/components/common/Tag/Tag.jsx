@@ -12,7 +12,7 @@ export default function Tag({ name, color, bgColor, className }) {
       >
         {name}
       </span>
-      <span className=".tag__triangle" style={{ borderRightColor: bgColor }} />
+      <span className="tag__triangle" style={{ borderRightColor: bgColor }} />
     </div>
   );
 }
