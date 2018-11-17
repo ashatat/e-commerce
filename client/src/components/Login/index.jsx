@@ -3,30 +3,23 @@ import InputField from '../common/InputField';
 import './Login.css';
 
 export default class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-      rememberMe: false,
-    };
+  state = {
+    email: '',
+    password: '',
+    rememberMe: false,
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
+  handleClick = () => {
     this.setState(prevState => ({
       rememberMe: !prevState.rememberMe,
     }));
-  }
+  };
 
-  handleChange(e) {
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     fetch('/login', {
       credentials: 'same-origin',
       headers: {
@@ -35,8 +28,9 @@ export default class Login extends Component {
       method: 'POST',
       body: JSON.stringify(this.state),
     });
+    console.log(this.state);
     e.preventDefault();
-  }
+  };
 
   render() {
     return (
