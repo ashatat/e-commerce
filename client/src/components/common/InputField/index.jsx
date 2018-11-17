@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// this line disables the windows end of line check for eslint.
-/* eslint linebreak-style: ["error", "windows"] */
 // declares propTypes validation.
 const propTypes = {
   id: PropTypes.string,
