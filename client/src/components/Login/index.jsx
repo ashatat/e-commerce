@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import InputField from '../common/InputField';
-import './Login.css';
+import './SignUp.css';
 /* eslint linebreak-style: ["error", "windows"] */
-export default class Login extends Component {
+export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,7 @@ export default class Login extends Component {
   }
 
   handleSubmit(e) {
-    fetch('/login', {
+    fetch('/sign-up', {
       credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json',
@@ -32,10 +32,10 @@ export default class Login extends Component {
 
   render() {
     return (
-      <form className="login-form" onSubmit={this.handleSubmit}>
-        <div className="login-form__container">
-          <h4 className="login-form__header">Not registered? No problem</h4>
-          <p>
+      <form className="sign-up-form" onSubmit={this.handleSubmit}>
+        <div className="sign-up-form__container">
+          <h4 className="sign-up-form__header">Not registered? No problem</h4>
+          <p className="sign-up-form__paragraph">
             Creating an account with Joyn is quick and easy, and will allow you
             to move through our checkout quicker. You can also store multiple
             shipping addresses, gain access to your order history, and much
@@ -44,8 +44,8 @@ export default class Login extends Component {
           <InputField
             id="email"
             labelText="Email address"
-            className="login-form__text"
-            labelClass="login-form__label"
+            className="sign-up-form__text"
+            labelClass="sign-up-form__label"
             name="email"
             type="text"
             onChange={this.handleChange}
@@ -53,17 +53,17 @@ export default class Login extends Component {
           <InputField
             id="password"
             labelText="Password"
-            labelClass="login-form__label"
-            className="login-form__text"
+            labelClass="sign-up-form__label"
+            className="sign-up-form__text"
             name="password"
             type="text"
             onChange={this.handleChange}
           />
-          <div className="login-form__submit-container">
+          <div className="sign-up-form__submit-container">
             <InputField
-              className="login-form__submit"
+              className="sign-up-form__submit"
               type="submit"
-              value="Login"
+              value="Register"
             />
           </div>
         </div>
