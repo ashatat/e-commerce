@@ -64,7 +64,7 @@ export default class SignUp extends Component {
           <InputField
             className="sign-up-form__submit"
             type="submit"
-            value="Sign Up"
+            value="Login"
           />
           <InputField
             className="sign-up-form__checkbox"
