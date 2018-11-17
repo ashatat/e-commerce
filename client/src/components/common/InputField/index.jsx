@@ -8,12 +8,13 @@ const propTypes = {
   id: PropTypes.string,
   labelText: PropTypes.string,
   type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   className: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
+  labelClass: PropTypes.string,
 };
 
 const Input = props => {
@@ -27,10 +28,11 @@ const Input = props => {
     onClick,
     id,
     labelText,
+    labelClass,
   } = props;
 
   return (
-    <label htmlFor={id}>
+    <label htmlFor={id} className={labelClass}>
       {labelText}
       <input
         id={id}
@@ -57,6 +59,8 @@ Input.defaultProps = {
   onClick: null,
   id: null,
   labelText: null,
+  labelClass: null,
+  name: null,
 };
 
 export default Input;
