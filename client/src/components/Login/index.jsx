@@ -28,7 +28,6 @@ export default class Login extends Component {
       method: 'POST',
       body: JSON.stringify(this.state),
     });
-    console.log(this.state);
     e.preventDefault();
   };
 
