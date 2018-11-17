@@ -27,7 +27,7 @@ export default class SignUp extends Component {
   }
 
   handleSubmit(e) {
-    fetch('/sign-up', {
+    fetch('/login', {
       credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json',
