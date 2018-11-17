@@ -11,7 +11,9 @@ class App extends Component {
     return(
       <Router>
         <Switch>
-          <Route exact path="/my-account" component={SignUp} />
+          <Route exact path="/my-account" >
+            <SignUp />
+          </Route>
         </Switch>
       </Router>
     )
