@@ -241,4 +241,32 @@ class ItemDetails extends Component {
   }
 }
 
+ItemDetails.defaultProps = {
+  description: '---',
+  sku: '---',
+};
+
+ItemDetails.propTypes = {
+  name: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  sku: PropTypes.string,
+  details: PropTypes.arrayOf(
+    PropTypes.shape({
+      pricing: PropTypes.shape({
+        price: PropTypes.string.isRequired,
+        discount_price: PropTypes.string.isRequired,
+      }),
+      color: PropTypes.string.isRequired,
+      quantitiy: PropTypes.number,
+      tags: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string,
+          name: PropTypes.string,
+        })
+      ),
+    })
+  ).isRequired,
+};
+
 export default ItemDetails;
