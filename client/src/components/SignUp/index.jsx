@@ -3,22 +3,16 @@ import InputField from '../common/InputField';
 import './SignUp.css';
 /* eslint linebreak-style: ["error", "windows"] */
 export default class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-    };
+  state = {
+    email: '',
+    password: '',
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(e) {
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     fetch('/sign-up', {
       credentials: 'same-origin',
       headers: {
@@ -28,7 +22,7 @@ export default class SignUp extends Component {
       body: JSON.stringify(this.state),
     });
     e.preventDefault();
-  }
+  };
 
   render() {
     return (
