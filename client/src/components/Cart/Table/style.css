@@ -1,0 +1,41 @@
+table {
+    margin: 20px 0;
+    width: 100%;
+}
+
+table.view-table tbody>tr {
+    background: #EEE;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 5px 0;
+    padding: 1rem;
+}
+
+table.view-table tbody>tr:first-child {
+    background: #DEDEDE;
+}
+
+.table-error {
+    text-align: center;
+}
+
+table.view-table tbody i {
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+table.view-table tbody .fa-trash-alt {
+    color: red;
+}
+
+table.view-table tbody .fa-trash-alt:hover {
+    color: #c43e3e;
+}
+
+table.view-table tbody .fa-info-circle {
+    color: #505050;
+}
+
+table.view-table .fa-info-circle:hover {
+    color: #000;
