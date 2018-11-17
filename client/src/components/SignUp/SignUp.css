@@ -1,20 +1,21 @@
+.sign-up-form {
+  display: flex;
+  width: 70%;
+  height: 360px;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  padding-bottom: 10px;
+}
+
 .sign-up-form__button-container {
-  margin: 0% 0% 0% 5%;
+  margin: 0% 0% 0% 35px;
   display: flex;
   align-content: center;
   width: 95%;
 }
 
-.sign-up-form {
-  display: flex;
-  width: 40%;
-  height: 31%;
-  flex-direction: column;
-  background-color: #f7f7f7;
-}
-
 .sign-up-form__text {
-  margin: 4% 0% 2% 0%;
+  margin: 30px 0% 12px 0%;
   display: flex;
   flex-direction: column;
   background-color: inherit;
@@ -31,18 +32,18 @@
 }
 
 .sign-up-form__label {
-  margin: 0% 0% 1% 5%;
+  margin: 0% 0% 6px 35px;
   font-size: 13px;
 }
 
 .sign-up-form__header {
-  margin: 6% 1% 6% 5%;
+  margin: 35px 5px 35px 31px;
   font-size: 17px;
 }
 
 .sign-up-form__anchor {
   font-size: 13px;
-  margin: 0% 0% 3% 5%;
+  margin: 0px 0px 25px 35px;
 }
 
 .sign-up-form__checkbox {
@@ -55,6 +56,10 @@
   padding: 10px 13px;
 }
 
+.sign-up-form__submit:focus {
+  outline: none;
+}
+
 .sign-up-form__submit:hover {
   border: 2px solid goldenrod;
   color: goldenrod;
@@ -63,5 +68,15 @@
 
 .remember-me__span {
   font-size: 13px;
-  margin: 3% 0% 0% 1%;
+  margin: 15px 0% 0% 6px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .sign-up-form {
+    display: flex;
+    width: 35%;
+    height: 31%;
+    flex-direction: column;
+    background-color: #f7f7f7;
+  }
 }
