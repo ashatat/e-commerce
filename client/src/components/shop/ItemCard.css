@@ -1,6 +1,6 @@
 .items-list {
   display: grid;
-  grid-template-columns: repeat(3, 380px);
+  grid-template-columns: repeat(3, auto);
   gap: 30px;
   max-width: 1200px;
   justify-content: center;
@@ -54,14 +54,32 @@
   font-style: normal;
 }
 
+
 .item__category {
   font-size: 14px;
+}
+
+.item__name:hover,
+.item__category:hover {
+  transition: color ease-in-out .4s;
+  color: #eabe12;
 }
 
 .item__price {
   font-size: 16px;
   line-height: 20px;
+  font-weight: 700;
 }
+
+.item__price s {
+  color: #a3a3a3;
+}
+
+.item__sale-price {
+  color: #ea5f4f;
+  font-weight: 700;
+}
+
 .item__detials > * {
   margin: 0;
   line-height: 150%;
