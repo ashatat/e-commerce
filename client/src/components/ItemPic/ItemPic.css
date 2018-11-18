@@ -10,6 +10,13 @@
   margin-bottom: 30px;
 }
 
+.item-pic__tag {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  z-index: 1;
+}
+
 .item-pic__images {
   display: flex;
   transition: all ease-in-out 0.5s

@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ZoomImg from './ZoomImg';
+import Tag from '../common/Tag/Tag';
 import './ItemPic.css';
 
 class ItemPic extends Component {
   state = {
     currentIndex: 0,
     translateValue: 0,
+  };
+
+  ProperTag = {
+    stock: null,
+    sale: <Tag name="SALE" color="white" bgColor="#ea5f50" />,
+    soldout: <Tag name="SOLD OUT" color="white" bgColor="#ccc" />,
   };
 
   componentDidMount() {
@@ -88,10 +95,11 @@ class ItemPic extends Component {
 
   render() {
     const { translateValue, currentIndex } = this.state;
-    const { picArr } = this.props;
+    const { picArr, status } = this.props;
     return (
       <div className="item-pic">
         <div className="item-pic__slider">
+          <div className="item-pic__tag">{this.ProperTag[status]}</div>
           <div
             className="item-pic__images"
             style={{ transform: `translateX(${translateValue}px)` }}
@@ -151,7 +159,12 @@ class ItemPic extends Component {
   }
 }
 
+ItemPic.defaultProps = {
+  status: null,
+};
+
 ItemPic.propTypes = {
   picArr: PropTypes.arrayOf(PropTypes.object).isRequired,
+  status: PropTypes.string,
 };
 export default ItemPic;
