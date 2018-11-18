@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import InputField from '../common/InputField';
 import './Login.css';
 
@@ -67,9 +68,9 @@ export default class Login extends Component {
           <span className="remember-me__span">Remember Me</span>
         </div>
         <p>
-          <a className="login-form__anchor" href="/my-account/lost-password">
+          <Link to="/my-account/lost-password" className="login-form__anchor">
             Lost your password?
-          </a>
+          </Link>
         </p>
       </form>
     );
