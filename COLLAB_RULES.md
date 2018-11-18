@@ -13,7 +13,7 @@ A collaborator must have one PR with a `[WiP]` status open at any given time. It
 
 ### 3- PRs with the `awaiting review` label must take priority over current task:
 
-In order to Maximize our efficiency and be able to accurately measure our progress and productivity, a PR that awaits review must be reviewed as soon as possible. A PR requires 3 reviews to be merged, however, all collaborator must review the PR within a maximum of 48 hours. This is essential to maximize our collective learning and to maximize our efficiency and ability to reflect on our progress and adapt our workflow accordingly.
+In order to Maximize our efficiency and be able to accurately measure our progress and productivity, a PR that awaits review must be reviewed as soon as possible. A PR requires reviews from half the collaborators to be merged, however, all collaborator must review the PR within a maximum of 48 hours. This is essential to maximize our collective learning and to maximize our efficiency and ability to reflect on our progress and adapt our workflow accordingly.
 
 ### 4- Issues with the label `question` must take absolute priority:
 
