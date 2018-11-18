@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './Normalize.css';
 import './App.css';
-import Login from './components/Login';
 
 /* eslint-disable  */
 class App extends Component {
@@ -12,7 +11,6 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/my-account" >
-            <Login />
           </Route>
         </Switch>
       </Router>
