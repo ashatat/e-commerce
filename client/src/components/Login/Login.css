@@ -20,7 +20,8 @@
   flex-direction: column;
   background-color: inherit;
   border: none;
-    border-bottom: 2px solid #e5e5e5;
+  border-bottom: 2px solid #e5e5e5;
+  font-size: 14px;
   width: 95%;
 }
 
@@ -31,7 +32,7 @@
 
 .sign-up-form__label {
   margin: 0% 0% 6px 35px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .sign-up-form__header {
