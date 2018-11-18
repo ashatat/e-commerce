@@ -16,7 +16,7 @@ exports[`has a valid snapshot 1`] = `
     SALE
   </span>
   <span
-    className=".tag__triangle"
+    className="tag__triangle"
     style={
       Object {
         "borderRightColor": "#ea5f50",

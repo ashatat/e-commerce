@@ -30,7 +30,7 @@ const Input = props => {
   } = props;
 
   return (
-    <label className={labelClass} htmlFor={id}>
+    <label htmlFor={id} className={labelClass}>
       {labelText}
       <input
         id={id}
