@@ -211,6 +211,22 @@
   transition: all ease-in-out 1s;
 }
 
+.item-details__add-to-cart--not-allowed {
+  cursor: not-allowed;
+}
+
+.item-details__add-to-cart--icon-spin {
+  animation: icon-spin 2s infinite linear;
+}
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
 .item-details__add-to-cart svg{
   font-size: 24px;
   vertical-align: -4px;

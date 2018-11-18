@@ -8,8 +8,14 @@ import {
   MdKeyboardArrowDown,
   MdAddShoppingCart,
   MdPlaylistAdd,
+  MdDone,
 } from 'react-icons/md';
-import { FaPinterest, FaFacebookF, FaTwitter } from 'react-icons/fa';
+import {
+  FaPinterest,
+  FaFacebookF,
+  FaTwitter,
+  FaCircleNotch,
+} from 'react-icons/fa';
 
 import InputField from '../common/InputField';
 
@@ -17,6 +23,7 @@ import './ItemDetails.css';
 
 class ItemDetails extends Component {
   state = {
+    adding: 'default',
     color: '',
     quantity: 0,
     tags: [
@@ -29,6 +36,25 @@ class ItemDetails extends Component {
         name: 'Accessories',
       },
     ],
+  };
+
+  addToCartButton = {
+    adding: (
+      <React.Fragment>
+        <FaCircleNotch className="item-details__add-to-cart--icon-spin" />{' '}
+        ADDING ..
+      </React.Fragment>
+    ),
+    added: (
+      <React.Fragment>
+        <MdDone /> ITEM ADDED
+      </React.Fragment>
+    ),
+    default: (
+      <React.Fragment>
+        <MdAddShoppingCart /> ADD TO CART
+      </React.Fragment>
+    ),
   };
 
   prevItem = () => {
@@ -57,9 +83,39 @@ class ItemDetails extends Component {
     }
   };
 
+  addToCart = () => {
+    const { details, userId } = this.props;
+    const { color, quantity } = this.state;
+    if (color && quantity) {
+      this.setState({ adding: 'adding' });
+      fetch('/api/v1/add-to-cart', {
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          userId,
+          itemDetailId: details[Number(color)].id,
+          quantity,
+        }),
+      }).then(result => {
+        if (result.err) {
+          // show error modal
+        } else {
+          this.setState({ adding: 'added' });
+          // show adding success modal
+          // then reset adding to default
+        }
+      });
+    }
+  };
+
+  addToWList = () => {};
+
   render() {
     const { name, category, details, description, sku } = this.props;
-    const { color, quantity, tags } = this.state;
+    const { color, quantity, tags, adding } = this.state;
 
     return (
       <div className="item-details">
@@ -172,10 +228,16 @@ class ItemDetails extends Component {
               <MdKeyboardArrowDown />
             </button>
           </div>
-          <button type="button" className="item-details__add-to-cart">
-            <MdAddShoppingCart /> ADD TO CART
+          <button
+            onClick={this.addToCart}
+            type="button"
+            className={`item-details__add-to-cart ${(!color || !quantity) &&
+              'item-details__add-to-cart--not-allowed'}`}
+          >
+            {this.addToCartButton[adding]}
           </button>
           <button
+            onClick={this.addToWList}
             type="button"
             name="Add to wishlist"
             className="item-details__add-to-wishlist"
@@ -247,6 +309,7 @@ ItemDetails.defaultProps = {
 };
 
 ItemDetails.propTypes = {
+  userId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   description: PropTypes.string,
@@ -258,7 +321,7 @@ ItemDetails.propTypes = {
         discount_price: PropTypes.string.isRequired,
       }),
       color: PropTypes.string.isRequired,
-      quantitiy: PropTypes.number,
+      quantity: PropTypes.number,
       tags: PropTypes.arrayOf(
         PropTypes.shape({
           id: PropTypes.string,
