@@ -1,4 +1,4 @@
-.sign-up-form {
+.login-form {
   display: flex;
   width: 70%;
   height: 360px;
@@ -7,14 +7,14 @@
   padding-bottom: 10px;
 }
 
-.sign-up-form__button-container {
+.login-form__button-container {
   margin: 0% 0% 0% 35px;
   display: flex;
   align-content: center;
   width: 95%;
 }
 
-.sign-up-form__text {
+.login-form__text {
   margin: 30px 0% 12px 0%;
   display: flex;
   flex-direction: column;
@@ -25,41 +25,41 @@
   width: 95%;
 }
 
-.sign-up-form__text:focus {
+.login-form__text:focus {
   border-bottom: 2px solid goldenrod;
   outline: none;
 }
 
-.sign-up-form__label {
+.login-form__label {
   margin: 0% 0% 6px 35px;
   font-size: 14px;
 }
 
-.sign-up-form__header {
+.login-form__header {
   margin: 35px 5px 35px 31px;
   font-size: 17px;
 }
 
-.sign-up-form__anchor {
+.login-form__anchor {
   font-size: 13px;
   margin: 0px 0px 25px 35px;
 }
 
-.sign-up-form__checkbox {
+.login-form__checkbox {
   margin: 15px 0px 0px 20px;
 }
 
-.sign-up-form__submit {
+.login-form__submit {
   background-color: inherit;
   border: 2px solid #e5e5e5;
   padding: 10px 13px;
 }
 
-.sign-up-form__submit:focus {
+.login-form__submit:focus {
   outline: none;
 }
 
-.sign-up-form__submit:hover {
+.login-form__submit:hover {
   border: 2px solid goldenrod;
   color: goldenrod;
   transition: 1s;
@@ -71,7 +71,7 @@
 }
 
 @media only screen and (min-width: 1000px) {
-  .sign-up-form {
+  .login-form {
     display: flex;
     width: 35%;
     height: 31%;

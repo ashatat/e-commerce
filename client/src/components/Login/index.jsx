@@ -33,13 +33,13 @@ export default class Login extends Component {
 
   render() {
     return (
-      <form className="sign-up-form" onSubmit={this.handleSubmit}>
-        <h4 className="sign-up-form__header">Registered Customer</h4>
+      <form className="login-form" onSubmit={this.handleSubmit}>
+        <h4 className="login-form__header">Registered Customer</h4>
         <InputField
           id="email"
           labelText="Username or email address"
-          className="sign-up-form__text"
-          labelClass="sign-up-form__label"
+          className="login-form__text"
+          labelClass="login-form__label"
           name="email"
           type="text"
           onChange={this.handleChange}
@@ -47,27 +47,27 @@ export default class Login extends Component {
         <InputField
           id="password"
           labelText="Password"
-          labelClass="sign-up-form__label"
-          className="sign-up-form__text"
+          labelClass="login-form__label"
+          className="login-form__text"
           name="password"
           type="text"
           onChange={this.handleChange}
         />
-        <div className="sign-up-form__button-container">
+        <div className="login-form__button-container">
           <InputField
-            className="sign-up-form__submit"
+            className="login-form__submit"
             type="submit"
             value="Login"
           />
           <InputField
-            className="sign-up-form__checkbox"
+            className="login-form__checkbox"
             type="checkbox"
             onClick={this.handleClick}
           />
           <span className="remember-me__span">Remember Me</span>
         </div>
         <p>
-          <a className="sign-up-form__anchor" href="/my-account/lost-password">
+          <a className="login-form__anchor" href="/my-account/lost-password">
             Lost your password?
           </a>
         </p>
