@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+
+import SignUp from '../SignUp';
+import Login from '../Login';
 import './MyAccount.css';
 
 export default function MyAccount() {
@@ -15,6 +18,10 @@ export default function MyAccount() {
             <p className="my-account__wrapper-text"> &gt; My Account</p>
           </div>
         </div>
+      </div>
+      <div className="my-account__forms-container">
+        <Login />
+        <SignUp />
       </div>
     </Fragment>
   );
