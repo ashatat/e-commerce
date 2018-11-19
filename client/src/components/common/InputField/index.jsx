@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// this line disables the windows end of line check for eslint.
-/* eslint linebreak-style: ["error", "windows"] */
 // declares propTypes validation.
 const propTypes = {
   id: PropTypes.string,
   labelText: PropTypes.string,
+  labelClass: PropTypes.string,
   type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   className: PropTypes.string.isRequired,
@@ -27,10 +26,11 @@ const Input = props => {
     onClick,
     id,
     labelText,
+    labelClass,
   } = props;
 
   return (
-    <label htmlFor={id}>
+    <label htmlFor={id} className={labelClass}>
       {labelText}
       <input
         id={id}
@@ -57,6 +57,8 @@ Input.defaultProps = {
   onClick: null,
   id: null,
   labelText: null,
+  name: null,
+  labelClass: null,
 };
 
 export default Input;
