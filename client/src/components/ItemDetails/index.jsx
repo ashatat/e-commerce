@@ -23,7 +23,8 @@ import './ItemDetails.css';
 
 class ItemDetails extends Component {
   state = {
-    adding: 'default',
+    cart: 'default',
+    wList: 'default',
     color: '',
     quantity: 0,
     tags: [
@@ -57,6 +58,16 @@ class ItemDetails extends Component {
     ),
   };
 
+  addToWListButton = {
+    adding: <FaCircleNotch className="item-details__add-to-cart--icon-spin" />,
+    added: <MdDone />,
+    default: (
+      <IconContext.Provider value={{ size: '25px' }}>
+        <MdPlaylistAdd />
+      </IconContext.Provider>
+    ),
+  };
+
   prevItem = () => {
     // go to previous item
   };
@@ -87,7 +98,7 @@ class ItemDetails extends Component {
     const { details, userId } = this.props;
     const { color, quantity } = this.state;
     if (color && quantity) {
-      this.setState({ adding: 'adding' });
+      this.setState({ cart: 'adding' });
       fetch('/api/v1/add-to-cart', {
         credentials: 'same-origin',
         headers: {
@@ -103,7 +114,7 @@ class ItemDetails extends Component {
         if (result.err) {
           // show error modal
         } else {
-          this.setState({ adding: 'added' });
+          this.setState({ cart: 'added' });
           // show adding success modal
           // then reset adding to default
         }
@@ -111,11 +122,34 @@ class ItemDetails extends Component {
     }
   };
 
-  addToWList = () => {};
+  addToWList = () => {
+    const { id, userId } = this.props;
+
+    this.setState({ wList: 'adding' });
+    fetch('/api/v1/add-to-wlist', {
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        userId,
+        itemId: id,
+      }),
+    }).then(result => {
+      if (result.err) {
+        // show error modal
+      } else {
+        this.setState({ wList: 'added' });
+        // show adding success modal
+        // then reset wList to default
+      }
+    });
+  };
 
   render() {
     const { name, category, details, description, sku } = this.props;
-    const { color, quantity, tags, adding } = this.state;
+    const { color, quantity, tags, cart, wList } = this.state;
 
     return (
       <div className="item-details">
@@ -234,7 +268,7 @@ class ItemDetails extends Component {
             className={`item-details__add-to-cart ${(!color || !quantity) &&
               'item-details__add-to-cart--not-allowed'}`}
           >
-            {this.addToCartButton[adding]}
+            {this.addToCartButton[cart]}
           </button>
           <button
             onClick={this.addToWList}
@@ -242,9 +276,7 @@ class ItemDetails extends Component {
             name="Add to wishlist"
             className="item-details__add-to-wishlist"
           >
-            <IconContext.Provider value={{ size: '25px' }}>
-              <MdPlaylistAdd />
-            </IconContext.Provider>
+            {this.addToWListButton[wList]}
           </button>
         </div>
         <div className="item-details__info">
@@ -309,6 +341,7 @@ ItemDetails.defaultProps = {
 };
 
 ItemDetails.propTypes = {
+  id: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
