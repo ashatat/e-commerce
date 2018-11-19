@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InputField from '../common/InputField';
 import './SignUp.css';
-/* eslint linebreak-style: ["error", "windows"] */
+
 export default class SignUp extends Component {
   state = {
     email: '',
