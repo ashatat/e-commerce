@@ -95,9 +95,9 @@ class ItemDetails extends Component {
   };
 
   addToCart = () => {
-    const { details, userId } = this.props;
+    const { details, userId, status } = this.props;
     const { color, quantity } = this.state;
-    if (color && quantity) {
+    if (color && quantity && (!status || status === 'sale')) {
       this.setState({ cart: 'adding' });
       fetch('/api/v1/add-to-cart', {
         credentials: 'same-origin',
@@ -148,18 +148,18 @@ class ItemDetails extends Component {
   };
 
   render() {
-    const { name, category, details, description, sku } = this.props;
+    const { name, category, details, description, sku, status } = this.props;
     const { color, quantity, tags, cart, wList } = this.state;
 
     return (
       <div className="item-details">
         <div className="item-details__head">
           <nav className="item-details__nav">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
             <span> &gt; </span>
-            <a href="#">{category}</a>
+            <a href={`/product-category/${category}`}>{category}</a>
             <span> &gt; </span>
-            <a>{name}</a>
+            <span>{name}</span>
           </nav>
           <div className="item-details__navigation">
             <button
@@ -193,21 +193,31 @@ class ItemDetails extends Component {
           </ins>
         </div>
         <p className="item-details__desc">{description}</p>
-        <select
-          className="item-details__select-color"
-          value={color}
-          name="color"
-          onChange={this.handelChange}
-        >
-          <option value="">Choose a Color</option>
-          {details.map((item, index) => (
-            <option id={index} value={index}>
-              {item.color}
-            </option>
-          ))}
-        </select>
+        {status === 'soldout' ? (
+          <ul className="item-details__list-color">
+            {details.map((item, index) => (
+              <li id={index} key={item.id} value={index}>
+                {`_${item.color}`}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <select
+            className="item-details__select-color"
+            value={color}
+            name="color"
+            onChange={this.handelChange}
+          >
+            <option value="">Choose a Color</option>
+            {details.map((item, index) => (
+              <option key={item.id} id={index} value={index}>
+                {item.color}
+              </option>
+            ))}
+          </select>
+        )}
         <div className="item-details__color">
-          {color ? (
+          {color && (
             <React.Fragment>
               <button
                 className="item-details__clear-color"
@@ -233,43 +243,47 @@ class ItemDetails extends Component {
                 </ins>
               </div>
             </React.Fragment>
-          ) : (
-            ''
           )}
         </div>
         <div className="item-details__form">
-          <div className="item-details__qty">
-            <InputField
-              type="text"
-              name="quantity"
-              placeholder={quantity.toString()}
-              value={quantity.toString()}
-              className="item-details__qty-field"
-              onChange={this.handelChange}
-            />
-            <button
-              onClick={this.handelIncrement}
-              type="button"
-              className="item-details__qty-inc"
-            >
-              <MdKeyboardArrowUp />
-            </button>
-            <button
-              onClick={this.handelIncrement}
-              type="button"
-              className="item-details__qty-dec"
-            >
-              <MdKeyboardArrowDown />
-            </button>
-          </div>
-          <button
-            onClick={this.addToCart}
-            type="button"
-            className={`item-details__add-to-cart ${(!color || !quantity) &&
-              'item-details__add-to-cart--not-allowed'}`}
-          >
-            {this.addToCartButton[cart]}
-          </button>
+          {status === 'soldout' ? (
+            ''
+          ) : (
+            <React.Fragment>
+              <div className="item-details__qty">
+                <InputField
+                  type="text"
+                  name="quantity"
+                  placeholder={quantity.toString()}
+                  value={quantity.toString()}
+                  className="item-details__qty-field"
+                  onChange={this.handelChange}
+                />
+                <button
+                  onClick={this.handelIncrement}
+                  type="button"
+                  className="item-details__qty-inc"
+                >
+                  <MdKeyboardArrowUp />
+                </button>
+                <button
+                  onClick={this.handelIncrement}
+                  type="button"
+                  className="item-details__qty-dec"
+                >
+                  <MdKeyboardArrowDown />
+                </button>
+              </div>
+              <button
+                onClick={this.addToCart}
+                type="button"
+                className={`item-details__add-to-cart ${(!color || !quantity) &&
+                  'item-details__add-to-cart--not-allowed'}`}
+              >
+                {this.addToCartButton[cart]}
+              </button>
+            </React.Fragment>
+          )}
           <button
             onClick={this.addToWList}
             type="button"
@@ -293,11 +307,10 @@ class ItemDetails extends Component {
           <div>
             Tags:{' '}
             {tags.map((item, index) => (
-              <React.Fragment>
+              <React.Fragment key={item.id}>
                 <a
                   className="item-details__info-link"
                   href={`/product-tag/${item.name}`}
-                  key={item.id}
                 >
                   {item.name}
                 </a>
@@ -338,6 +351,7 @@ class ItemDetails extends Component {
 ItemDetails.defaultProps = {
   description: '---',
   sku: '---',
+  status: null,
 };
 
 ItemDetails.propTypes = {
@@ -347,6 +361,7 @@ ItemDetails.propTypes = {
   category: PropTypes.string.isRequired,
   description: PropTypes.string,
   sku: PropTypes.string,
+  status: PropTypes.string,
   details: PropTypes.arrayOf(
     PropTypes.shape({
       pricing: PropTypes.shape({

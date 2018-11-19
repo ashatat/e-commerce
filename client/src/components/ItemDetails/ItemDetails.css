@@ -84,6 +84,10 @@
   margin-bottom: 30px;
 }
 
+.item-details__list-color {
+  list-style: none;
+}
+
 .item-details__select-color {
   appearance: none;
   width: 100%;
