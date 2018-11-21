@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './ItemCard.css';
 import Tag from '../common/Tag/Tag';
+import QuickNav from './QuickNav';
 
 export default function Card({ item }) {
   const { name, currencey, price, salePrice, category, status, images } = item;
@@ -29,6 +30,9 @@ export default function Card({ item }) {
             src={images[1]}
             alt={name}
           />
+          <div className="item__quick-nav">
+            <QuickNav />
+          </div>
         </div>
       </Link>
       <div className="item__detials">

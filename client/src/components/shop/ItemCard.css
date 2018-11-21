@@ -41,11 +41,24 @@
 }
 
 .item__img-container:hover .item__img-1,
-.item__img-container:hover .item__widget {
+.item__img-container:hover .item__widget,
+.item__img-container:hover .item__quick-nav {
   display: none;
 }
 
 .item__img-container:hover .item__img-2 {
+  display: block;
+}
+
+.item__quick-nav {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.item__img-container:hover .item__quick-nav {
   display: block;
 }
 
