@@ -12,6 +12,7 @@ export default class MyAccount extends Component {
     loginRememberMe: false,
     signupEmail: '',
     signupPassword: '',
+    error: false,
   };
 
   handleLoginChange = e => {
@@ -25,6 +26,12 @@ export default class MyAccount extends Component {
       loginPassword,
       loginRememberMe,
     };
+
+    if (loginEmail === '' || loginPassword === '') {
+      this.setState({ error: true });
+    } else {
+      this.setState({ error: false });
+    }
 
     fetch('/login', {
       credentials: 'same-origin',
@@ -54,6 +61,12 @@ export default class MyAccount extends Component {
       signupPassword,
     };
 
+    if (signupEmail === '' || signupPassword === '') {
+      this.setState({ error: true });
+    } else {
+      this.setState({ error: false });
+    }
+
     e.preventDefault();
     fetch('/sign-up', {
       credentials: 'same-origin',
@@ -66,6 +79,7 @@ export default class MyAccount extends Component {
   };
 
   render() {
+    const { error } = this.state;
     return (
       <Fragment>
         <div className="my-account">
@@ -80,16 +94,22 @@ export default class MyAccount extends Component {
           </div>
         </div>
         <div className="my-account__forms-container">
-          <div className="my-account__error-message">hello</div>
-          <Login
-            handleChange={this.handleLoginChange}
-            handleSubmit={this.handleLoginSubmit}
-            handleClick={this.handleLoginClick}
-          />
-          <SignUp
-            handleChange={this.handleSignUpChange}
-            handleSubmit={this.handleSignUpSubmit}
-          />
+          {error === true && (
+            <div className="my-account__error-message">
+              <b>Error:</b> Username or password is required
+            </div>
+          )}
+          <div className="my-account__forms-wrapper">
+            <Login
+              handleChange={this.handleLoginChange}
+              handleSubmit={this.handleLoginSubmit}
+              handleClick={this.handleLoginClick}
+            />
+            <SignUp
+              handleChange={this.handleSignUpChange}
+              handleSubmit={this.handleSignUpSubmit}
+            />
+          </div>
         </div>
       </Fragment>
     );
