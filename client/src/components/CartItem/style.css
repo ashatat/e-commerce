@@ -83,7 +83,7 @@
   cursor: pointer;
   color: #333333;
   font-size: 24px;
-  transition: all 0.8s ease-in-out
+  transition: all 0.7s ease-in-out
 }
 
 .cart__button--x:hover {
