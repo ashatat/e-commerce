@@ -27,16 +27,7 @@ class ItemDetails extends Component {
     wList: 'default',
     color: '',
     quantity: 0,
-    tags: [
-      {
-        id: '1',
-        name: 'Backpack',
-      },
-      {
-        id: '2',
-        name: 'Accessories',
-      },
-    ],
+    tags: [],
   };
 
   addToCartButton = {
@@ -264,14 +255,22 @@ class ItemDetails extends Component {
                   type="button"
                   className="item-details__qty-inc"
                 >
-                  <MdKeyboardArrowUp />
+                  <IconContext.Provider
+                    value={{ style: { pointerEvents: 'none' } }}
+                  >
+                    <MdKeyboardArrowUp />
+                  </IconContext.Provider>
                 </button>
                 <button
                   onClick={this.handelIncrement}
                   type="button"
                   className="item-details__qty-dec"
                 >
-                  <MdKeyboardArrowDown />
+                  <IconContext.Provider
+                    value={{ style: { pointerEvents: 'none' } }}
+                  >
+                    <MdKeyboardArrowDown />
+                  </IconContext.Provider>
                 </button>
               </div>
               <button
