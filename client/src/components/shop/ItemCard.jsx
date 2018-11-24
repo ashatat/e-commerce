@@ -30,7 +30,7 @@ export default function Card({ item }) {
             src={images[1]}
             alt={name}
           />
-          <div className="item__quick-nav">
+          <div className="item__quick-nav hidden">
             <QuickNav />
           </div>
         </div>
