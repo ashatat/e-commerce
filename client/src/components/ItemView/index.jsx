@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ItemInfo from './ItemInfo';
+import './ItemView.css';
 
 import { fakeData } from './ItemInfo/fakeData';
 
@@ -18,7 +19,7 @@ class ItemView extends Component {
     const { details } = this.state;
 
     return (
-      <div>
+      <div className="item-view">
         <ItemInfo details={details} />
       </div>
     );
