@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // import icons
@@ -32,20 +32,20 @@ class ItemDetails extends Component {
 
   addToCartButton = {
     adding: (
-      <React.Fragment>
+      <Fragment>
         <FaCircleNotch className="item-details__add-to-cart--icon-spin" />{' '}
         ADDING ..
-      </React.Fragment>
+      </Fragment>
     ),
     added: (
-      <React.Fragment>
+      <Fragment>
         <MdDone /> ITEM ADDED
-      </React.Fragment>
+      </Fragment>
     ),
     default: (
-      <React.Fragment>
+      <Fragment>
         <MdAddShoppingCart /> ADD TO CART
-      </React.Fragment>
+      </Fragment>
     ),
   };
 
@@ -209,7 +209,7 @@ class ItemDetails extends Component {
         )}
         <div className="item-details__color">
           {color && (
-            <React.Fragment>
+            <Fragment>
               <button
                 className="item-details__clear-color"
                 type="button"
@@ -233,14 +233,14 @@ class ItemDetails extends Component {
                     Number(details[color].pricing.discount_price)}
                 </ins>
               </div>
-            </React.Fragment>
+            </Fragment>
           )}
         </div>
         <div className="item-details__form">
           {status === 'soldout' ? (
             ''
           ) : (
-            <React.Fragment>
+            <Fragment>
               <div className="item-details__qty">
                 <InputField
                   type="text"
@@ -281,7 +281,7 @@ class ItemDetails extends Component {
               >
                 {this.addToCartButton[cart]}
               </button>
-            </React.Fragment>
+            </Fragment>
           )}
           <button
             onClick={this.addToWList}
@@ -306,7 +306,7 @@ class ItemDetails extends Component {
           <div>
             Tags:{' '}
             {tags.map((item, index) => (
-              <React.Fragment key={item.id}>
+              <Fragment key={item.id}>
                 <a
                   className="item-details__info-link"
                   href={`/product-tag/${item.name}`}
@@ -314,7 +314,7 @@ class ItemDetails extends Component {
                   {item.name}
                 </a>
                 {index === tags.length - 1 ? '' : ', '}
-              </React.Fragment>
+              </Fragment>
             ))}
           </div>
         </div>
