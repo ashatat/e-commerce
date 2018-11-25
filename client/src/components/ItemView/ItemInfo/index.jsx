@@ -4,38 +4,28 @@ import './ItemInfo.css';
 
 const reFormData = info => {
   // get list of undoplicated "Weight, Color, Size, Fabric" or any other details
-  const formedInfo = {
-    color: [],
-    weight: [],
-    size: [],
-    fabric: [],
-  };
+  const formedInfo = {};
 
   info.forEach(item => {
-    if (!formedInfo.color.includes(item.color)) {
-      formedInfo.color.push(item.color);
-    }
-    if (!formedInfo.weight.includes(item.weight)) {
-      formedInfo.weight.push(item.weight);
-    }
-    if (!formedInfo.size.includes(item.size)) {
-      formedInfo.size.push(item.size);
-    }
-    if (!formedInfo.fabric.includes(item.fabric)) {
-      formedInfo.fabric.push(item.fabric);
-    }
+    Object.keys(item).forEach(key => {
+      if (key !== 'id') {
+        if (!formedInfo[key]) {
+          formedInfo[key] = [item[key]];
+        } else if (!formedInfo[key].includes(item[key])) {
+          formedInfo[key].push(item[key]);
+        }
+      }
+    });
   });
   return formedInfo;
 };
 
 export default props => {
   const { details } = props;
-  // let data = { color: '', weight: '', size: '', fabric: '' };
   let data;
   if (details) {
     data = reFormData(details);
   }
-  // const { color, weight, size, fabric } = data;
 
   return (
     <div className="item-info">
