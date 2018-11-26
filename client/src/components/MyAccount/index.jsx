@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import { Link } from 'react-router-dom';
+import { MdError } from 'react-icons/md';
 
 import SignUp from '../SignUp';
 import Login from '../Login';
@@ -96,6 +97,7 @@ export default class MyAccount extends Component {
         <div className="my-account__forms-container">
           {error === true && (
             <div className="my-account__error-message">
+              <MdError className="my-account__error-icon" />
               <b>Error:</b> Username or password is required
             </div>
           )}

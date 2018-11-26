@@ -45,6 +45,10 @@
   margin: 20px 0 0 5%;
 }
 
+.my-account__error-icon {
+  margin-right: 3px;
+}
+
 .my-account__forms-container:nth-child(0) {
   margin-right: 50px;
 }
@@ -68,6 +72,7 @@
     width: 100%;
     margin: 0 15%;
   }
+
   .my-account__forms-wrapper {
     display: flex;
     flex-direction: column;
