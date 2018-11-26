@@ -32,16 +32,15 @@ export default class MyAccount extends Component {
       this.setState({ error: true });
     } else {
       this.setState({ error: false });
+      fetch('/login', {
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(loginState),
+      });
     }
-
-    fetch('/login', {
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(loginState),
-    });
     e.preventDefault();
   };
 
@@ -56,6 +55,7 @@ export default class MyAccount extends Component {
   };
 
   handleSignUpSubmit = e => {
+    e.preventDefault();
     const { signupEmail, signupPassword } = this.state;
     const signUpState = {
       signupEmail,
@@ -66,17 +66,15 @@ export default class MyAccount extends Component {
       this.setState({ error: true });
     } else {
       this.setState({ error: false });
+      fetch('/sign-up', {
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(signUpState),
+      });
     }
-
-    e.preventDefault();
-    fetch('/sign-up', {
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(signUpState),
-    });
   };
 
   render() {
