@@ -1,0 +1,331 @@
+.item-details {
+  width: 45%;
+  min-width: 560px;
+  padding: 0 15px;
+}
+
+.item-details__head {
+  position: relative;
+  border-bottom: 2px solid #f2f2f2;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.item-details__nav {
+  color: #777;
+  font-size: 15px;
+}
+
+.item-details__nav a {
+  text-decoration: none;
+  color: #777;
+}
+
+.item-details__navigation {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.item-details__nav-button {
+  border: none;
+  margin: 1px;
+  background-color: white;
+  display: block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 30px;
+  box-shadow: 0 0 3px 0px rgba(0,0,0,0.15);
+}
+
+.item-details__nav-button:hover,
+.item-details__nav-button:focus {
+  color: #eabe12;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__header {
+  line-height: 38px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 28px;
+}
+
+.item-details__price {
+  font-family: Dosis;
+  line-height: 24px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.item-details__del {
+  color: #222222;
+}
+
+.item-details__ins {
+  text-decoration: none;
+  color: #ea5f4f;
+}
+
+.item-details__desc {
+  color: #444;
+  line-height: 26px;
+  letter-spacing: 0px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.item-details__list-color {
+  list-style: none;
+}
+
+.item-details__select-color {
+  appearance: none;
+  width: 100%;
+  height: 58px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid #e3e3e3;
+  background: url(http://atelier.swiftideas.com/wp-content/themes/atelier/images/down-arrow@2x.png) no-repeat right;
+  background-size: 9px 6px;
+  margin-bottom: 25px; 
+}
+
+.item-details__color {
+  margin-bottom: 35px;
+}
+
+
+.item-details__clear-color {
+  font-size: 11px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__clear-color:hover, .item-details__clear-color:focus {
+  color: #eabe12;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__item-price {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.item-details__del--gray {
+  color: #999;
+}
+
+.item-details__form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-details__qty {
+  position: relative;
+  width: 76px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.item-details__qty-field {
+  width: 46px;
+  height: 60px;
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  border: 2px solid #e3e3e3;
+  transition: all ease-in-out 1s;
+}
+
+.item-details__qty-field:focus {
+  border: 2px solid #eabe12;
+  transition: all ease-in-out 1s;
+}
+
+.item-details__qty-inc {
+  cursor: pointer;
+  width: 27px;
+  height: 31px;
+  line-height: 31px;
+  font-size: 22px;
+  position: absolute;
+  top: 0;
+  padding: 0;
+  appearance: none;
+  border: 2px solid #e3e3e3;
+  border-left: none;
+  background: none;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__qty-dec {
+  cursor: pointer;
+  width: 27px;
+  height: 30px;
+  line-height: 0px;
+  font-size: 22px;
+  position: absolute;
+  bottom: 0;
+  padding: 0;
+  appearance: none;
+  border: 2px solid #e3e3e3;
+  border-left: none;
+  border-top: none;
+  background: none;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__qty-inc:hover,.item-details__qty-inc:focus,.item-details__qty-dec:hover,.item-details__qty-dec:focus {
+  color: #eabe12;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__add-to-cart {
+  cursor: pointer;
+  width: 180px;
+  height: 60px;
+  padding: 0 20px;
+  line-height: 60px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #999;
+  background: none;
+  border: 2px solid #999;
+  transition: all ease-in-out 1s;
+}
+
+.item-details__add-to-cart:hover, .item-details__add-to-cart:focus {
+  color: #ecce54;
+  border-color: #ecce54;
+  transition: all ease-in-out 1s;
+}
+
+.item-details__add-to-cart--not-allowed {
+  cursor: not-allowed;
+}
+
+.item-details__add-to-cart--icon-spin {
+  animation: icon-spin 2s infinite linear;
+}
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.item-details__add-to-cart svg{
+  font-size: 24px;
+  vertical-align: -4px;
+}
+
+.item-details__add-to-wishlist {
+  position: relative;
+  cursor: pointer;
+  margin-left: 20px;
+  width: 62px;
+  height: 60px;
+  color: #444;
+  background: none;
+  border: 2px solid #e3e3e3;
+  transition: all ease-in-out 1s;
+}
+
+.item-details__add-to-wishlist:hover::after {
+  content: attr(name);
+  position: absolute;
+  top: -55px;
+  left: -30px;
+  width: 120px;
+  height: 45px;
+  background-color: #444;
+  font-size: 14px;
+  line-height: 45px;
+  border: 1px dotted #444;
+  color: white;
+}
+.item-details__add-to-wishlist:hover::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #444;
+}
+
+.item-details__add-to-wishlist:hover, .item-details__add-to-wishlist:focus {
+  color: #eabe12;
+  border-color: #eabe12;
+  transition: all ease-in-out 1s;
+}
+
+.item-details__info {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 34px;
+  font-weight: 400;
+  color: #444;
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
+
+.item-details__info-link {
+  text-decoration: none;
+  color: #444;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__info-link:hover, .item-details__info-link:focus {
+  color: #eabe12;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__share {
+  padding: 20px 0;
+  border-top: 2px solid #f2f2f2;
+  border-bottom: 2px solid #f2f2f2;
+
+}
+
+.item-details__share--bold {
+  font-family: Dosis;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  margin-right: 25px;
+  letter-spacing: 1px;
+}
+
+.item-details__share-icons {
+  color: #777;
+  font-size: 16px;
+  margin-right: 20px;
+  vertical-align: -1px;
+  transition: color ease-in-out 1s;
+}
+
+.item-details__share-icons:hover,.item-details__share-icons:focus {
+  color: #eabe12;
+  transition: color ease-in-out 1s;
+}
