@@ -42,7 +42,8 @@
   box-shadow: 0 0 3px 0px rgba(0,0,0,0.15);
 }
 
-.item-details__nav-button:hover, .item-details__nav-button:focus {
+.item-details__nav-button:hover,
+.item-details__nav-button:focus {
   color: #eabe12;
   transition: color ease-in-out 1s;
 }
