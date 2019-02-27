@@ -1,0 +1,68 @@
+.quick-nav {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-nav__item {
+  position: relative;
+  border: 1px solid #f2f2f2;
+}
+
+.quick-nav__button {
+  width: 62px;
+  height: 62px;
+  background: white;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.quick-nav__button:hover {
+  color: #eabe12;
+  transition: color ease-in-out .4s;
+}
+
+/* tool tip styles */
+.quick-nav__button:hover::after {
+  content: attr(name);
+  position: absolute;
+  top: -55px;
+  left: -30px;
+  width: 120px;
+  height: 45px;
+  background-color: rgba(0, 0, 0, .9);
+  font-size: 14px;
+  line-height: 45px;
+  color: white;
+}
+.quick-nav__button:hover::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(0, 0, 0, .9);
+}
+
+/* End of tool tip styles */
+
+.quick-nav__add-to-cart--icon-spin {
+  color: #eabe12;
+  animation: icon-spin 2s infinite linear;
+}
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+
+
