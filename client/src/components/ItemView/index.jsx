@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-import ItemInfo from './ItemInfo';
 import './ItemView.css';
+import ItemInfo from './ItemInfo';
+import ItemReviews from './ItemReviews';
 
 import { fakeData } from './ItemInfo/fakeData';
+import ReviewfakeData from './ItemReviews/fakeData';
 
 class ItemView extends Component {
   state = {
@@ -21,6 +23,7 @@ class ItemView extends Component {
     return (
       <div className="item-view">
         <ItemInfo details={details} />
+        <ItemReviews reviewsData={ReviewfakeData} />
       </div>
     );
   }
