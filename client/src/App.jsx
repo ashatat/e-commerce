@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MyAccount from './components/MyAccount';
 
 import './Normalize.css';
 import './App.css';
@@ -7,14 +8,13 @@ import './App.css';
 /* eslint-disable  */
 class App extends Component {
   render() {
-    return(
+    return (
       <Router>
         <Switch>
-          <Route exact path="/my-account" >
-          </Route>
+          <Route exact path="/my-account" component={MyAccount} />
         </Switch>
       </Router>
-    )
+    );
   }
 }
 
